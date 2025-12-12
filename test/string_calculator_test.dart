@@ -12,17 +12,18 @@ void main() {
     expect(add(" \\n | 1 \\n,| 2 "), 3);
     expect(add("1,2,22,asc,3w "), 10);
     expect(add(" 1  \t2 \n3"), 6);
+    expect(add("//[***]\n1***2***3"), 6);
   });
   test('exceptions', () {
     expect(
-      () => add("-8"),
+      () => add("-8ui"),
       throwsA(predicate((e) =>
-          e is FormatException && e.message == 'negative numbers not allowed'))
+          e is FormatException && e.message == 'negatives not allowed'))
     );
     expect(
       () => add("-8 | 7"),
       throwsA(predicate((e) =>
-          e is FormatException && e.message == 'negative numbers not allowed'))
+          e is FormatException && e.message == 'negatives not allowed'))
     );
   });
 }

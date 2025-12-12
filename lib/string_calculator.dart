@@ -17,7 +17,7 @@ List<int> _extractNumbers(String numbers) {
   List<int> intList = [];
   for (int i = 0; i < numbers.length; i++) {
     if (numbers[i] == '-') {
-      throw FormatException('negative numbers not allowed');
+      throw FormatException('negatives not allowed');
     }
     intList.add(int.parse(numbers[i]));
   }
