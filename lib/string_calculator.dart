@@ -1,24 +1,16 @@
 int add(String numbers) {
   numbers = numbers.trim();
-  
+
   if (numbers.isEmpty) {
     return 0;
   }
-
-  List<int> numList = [];
-  for(String number in _eleminateInfficiency(numbers)) {
-    numList.addAll(_extractNumbers(number));
-  }
-
+  String eleminatedData = _eleminateInfficiency(numbers);
+  List<int> numList = _extractNumbers(eleminatedData);
   return numList.reduce((value, element) => value + element);
 }
 
-List<String> _eleminateInfficiency(String numbers) {
-  List<String> numList = numbers.split(RegExp(r'[ ,]'));
-  for (int i = 0; i < numList.length; i++) {
-    numList[i] = numList[i].trim();
-  }
-  return numList;
+String _eleminateInfficiency(String numbers) {
+  return numbers.replaceAll(RegExp(r'[^0-9]+'), '').trim();
 }
 
 List<int> _extractNumbers(String numbers) {
