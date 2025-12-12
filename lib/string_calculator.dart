@@ -10,13 +10,16 @@ int add(String numbers) {
 }
 
 String _eleminateInfficiency(String numbers) {
-  return numbers.replaceAll(RegExp(r'[^0-9]+'), '').trim();
+  return numbers.replaceAll(RegExp(r'[^-0-9]+'), '').trim();
 }
 
 List<int> _extractNumbers(String numbers) {
   List<int> intList = [];
   for (int i = 0; i < numbers.length; i++) {
-    intList.add(int.parse(numbers[i].trim()));
+    if (numbers[i] == '-') {
+      throw FormatException('negative numbers not allowed');
+    }
+    intList.add(int.parse(numbers[i]));
   }
   return intList;
 }
