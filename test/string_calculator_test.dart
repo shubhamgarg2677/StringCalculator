@@ -5,6 +5,6 @@ void main() {
   test('add', () {
     expect(add(""), 0);
     expect(add("1"), 1);
-    expect(add("12"), 12);
+    expect(add("12"), 3);
   });
 }
