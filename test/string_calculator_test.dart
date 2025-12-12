@@ -6,5 +6,6 @@ void main() {
     expect(add(""), 0);
     expect(add("1"), 1);
     expect(add("12"), 3);
+    expect(add("1,2"), 3);
   });
 }
